@@ -16,7 +16,6 @@ public class ApplicationConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        // make sure you add your own package name if your class is not under com.laioffer.jupiter.entity.db
         sessionFactory.setPackagesToScan("com.app.twitchly.entity.db");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
@@ -27,7 +26,6 @@ public class ApplicationConfig {
         String RDS_ENDPOINT = "<DATABASE ENDPOINTS for AWS >";
         String USERNAME = "admin";
         String PASSWORD = "sardar0702";
-        //需要修改红色部分, 保留其他内容,  YOUR_RDS_INSTANCE_ADDRESS,USERNAME,  PASSWORD are information created last lesson
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://" + RDS_ENDPOINT + ":3306/twitch?createDatabaseIfNotExist=true&serverTimezone=UTC");
